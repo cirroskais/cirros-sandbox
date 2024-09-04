@@ -9,5 +9,5 @@ Everything in this repository is licensed under the GNU General Public License, 
 -   [ ] Buildmode
 -   [ ] Warnings System
 -   [ ] Discord Relay
--   [ ] Custom Adverts
+-   [x] Custom Adverts
 -   [ ] Workshop Downloader
