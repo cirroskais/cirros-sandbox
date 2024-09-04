@@ -1,37 +1,24 @@
 if SERVER then
-    CLib.Chat.GenericMessage = function (data)
-        local mask = 0
-        for i,v in pairs(data) do
-            mask = mask + bit.lshift(IsColor(v) and 1 or 0, i - 1)
-        end
-
+    util.AddNetworkString("CLIB_CHAT_MESSAGE")
+    CLib.Chat.GenericMessage = function (message, options)
+        options = options or {}
         net.Start("CLIB_CHAT_MESSAGE")
-            net.WriteInt(mask)
-            for i,v in pairs(data) do
-                if IsColor(v) then
-                    net.WriteColor(v)
-                else
-                    net.WriteString(v)
-                end
-            end
-        net.Broadcast()
+            net.WriteBool(options.formatColor and true)
+            net.WriteString(message)
+        if options.target then net.Send(options.target)
+        else net.Broadcast() end
     end
 end
 
 if CLIENT then
     net.Receive("CLIB_CHAT_MESSAGE", function()
-        local mask = net.ReadInt()
-        if (mask < 1) then return error("Received CLIB_CHAT_MESSAGE with invalid length") end
-
-        local data = {}
-        for i = 1, length do
-            if bit.band(bit.lshift(1, i - 1), mask) then
-                table.insert(data, net.ReadColor())
-            else
-                table.insert(data, net.ReadString())
-            end
+        local format = net.ReadBool()
+        local message = net.ReadString()
+        if format then 
+            message = CLib.Strings.ParseColored(message)
+            chat.AddText(unpack(message))
+        else
+            chat.AddText(message)
         end
-        
-        chat.AddText(unpack(table.Reverse(data)))
     end)
 end

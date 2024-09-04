@@ -46,5 +46,5 @@ function Load()
     print("----------------------------------------")
 end
 
-concommand.Add("clib_reload",Load)
+concommand.Add("clib_reload", Load)
 Load()
