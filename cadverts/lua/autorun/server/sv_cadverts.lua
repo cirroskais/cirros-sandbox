@@ -11,7 +11,7 @@ function Load()
     if #CAdverts.Repeating > 0 then
         for i,v in pairs(CAdverts.Repeating) do
             timer.Create(v.name, v.every, 0, function()
-                CLib.Chat.GenericMessage(v.content, { formatColor = true })
+                CLib.Chat.ServerMessage(v.content, { formatColor = true })
             end)
 
             CAdvertsTimers[v.name] = true
@@ -24,7 +24,7 @@ function Load()
     if #CAdverts.Rotation.adverts > 0 then
         timer.Create("rotation", CAdverts.Rotation.every, 0, function()
             if curAdvert > #CAdverts.Rotation.adverts then curAdvert = 1 end
-            CLib.Chat.GenericMessage(CAdverts.Rotation.adverts[curAdvert], { formatColor = true })
+            CLib.Chat.ServerMessage(CAdverts.Rotation.adverts[curAdvert], { formatColor = true })
             curAdvert = curAdvert + 1
         end)
 

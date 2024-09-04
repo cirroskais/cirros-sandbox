@@ -24,12 +24,13 @@ CLib.Strings.ParseColored = function (str)
                 local g = string.sub(hex, 3, 4)
                 local b = string.sub(hex, 5, 6)
 
-                table.insert(output, Color(r, g, b))
+                table.insert(output, Color(tonumber(r, 16), tonumber(g, 16), tonumber(b, 16)))
             else
                 table.insert(output, v)
             end
         end
     end
 
+    PrintTable(output)
     return output
 end
