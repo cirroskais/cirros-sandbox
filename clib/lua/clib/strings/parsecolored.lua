@@ -31,6 +31,5 @@ CLib.Strings.ParseColored = function (str)
         end
     end
 
-    PrintTable(output)
     return output
 end

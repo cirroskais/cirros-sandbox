@@ -2,12 +2,12 @@ CLib = CLib or {}
 CLib.Version = "0.0.0"
 _G.CLib = CLib
 
-function CLib.LoadServerScript(script)
+local function LoadServerScript(script)
     if CLIENT then return end
     return include(script)
 end
 
-function CLib.LoadClientScript(script)
+local function LoadClientScript(script)
     if SERVER then
         AddCSLuaFile(script)
         return
@@ -15,7 +15,7 @@ function CLib.LoadClientScript(script)
     return include(script)
 end
 
-function CLib.LoadSharedScript(script)
+local function LoadSharedScript(script)
     if SERVER then AddCSLuaFile(script) end
     return include(script)
 end
@@ -29,19 +29,20 @@ function Load()
 
     print("[CLib] Setting up CLib.Logging")
     CLib.Logging = CLib.Logging or {}
-    CLib.LoadSharedScript("clib/logging/debug.lua")
-    CLib.LoadSharedScript("clib/logging/error.lua")
-    CLib.LoadSharedScript("clib/logging/normal.lua")
-    CLib.LoadSharedScript("clib/logging/debug.lua")
+    LoadSharedScript("clib/logging/debug.lua")
+    LoadSharedScript("clib/logging/error.lua")
+    LoadSharedScript("clib/logging/normal.lua")
+    LoadSharedScript("clib/logging/debug.lua")
 
     print("[CLib] Setting up CLib.Strings")
     CLib.Strings = CLib.Strings or {}
-    CLib.LoadSharedScript("clib/strings/parsecolored.lua")
+    LoadSharedScript("clib/strings/parsecolored.lua")
 
     print("[CLib] Setting up CLib.Chat")
     CLib.Chat = CLib.Chat or {}
-    CLib.LoadSharedScript("clib/chat/genericmessage.lua")
-    CLib.LoadServerScript("clib/chat/servermessage.lua")
+    LoadSharedScript("clib/chat/genericmessage.lua")
+    LoadServerScript("clib/chat/servermessage.lua")
+    LoadClientScript("clib/chat/disablejoinleave.lua")
 
     print("----------------------------------------")
 end

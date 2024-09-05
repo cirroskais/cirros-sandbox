@@ -1,0 +1,1 @@
+concommand.Add("cworkshop_open", CreateCWorkshopGui, nil, "Open CWorkshop's GUI to manage dynamic workshop content.")
