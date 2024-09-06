@@ -1,6 +1,4 @@
 function Load() 
-    print("Cworkshop")
-
     local function LoadServerScript(script)
         if CLIENT then return end
         return include(script)
