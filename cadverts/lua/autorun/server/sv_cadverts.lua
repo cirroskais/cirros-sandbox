@@ -1,4 +1,4 @@
-if !CLib then return error("[CAdverts] Missing required dependency CLib!") end
+if not CLib then return error("[CAdverts] Missing required dependency CLib!") end
 CAdvertsTimers = CAdvertsTimers or {}
 
 function Load() 

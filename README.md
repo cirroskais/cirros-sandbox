@@ -10,4 +10,4 @@ Everything in this repository is licensed under the GNU General Public License, 
 -   [ ] Warnings System
 -   [ ] Discord Relay
 -   [x] Custom Adverts
--   [ ] Workshop Downloader
+-   [x] Workshop Downloader

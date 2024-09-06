@@ -1,10 +1,10 @@
 CLib = _G.CLib
-if !CLib then return error("[CAdverts] Missing required dependency CLib!") end
+if not CLib then return error("[CAdverts] Missing required dependency CLib!") end
 
 CAdverts = CAdverts or {}
 
 CAdverts.Rotation = {
-    every = 120,
+    every = 300,
     adverts = {
         "[&#bac2de]Join our [&#5865f2]Discord [&#bac2df]server to suggest an addon or chat!\n[&#8caaee]https://discord.gg/vGc5DtzyRm",
         "[&#bac2de]Missing models or textures? Make sure to subscribe to the workshop collection!\n[&#8caaee]https://steamcommunity.com/sharedfiles/filedetails/?id=3307830375",
