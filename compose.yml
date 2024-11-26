@@ -1,0 +1,28 @@
+services:
+    web:
+        image: caddy:2-alpine
+        restart: unless-stopped
+        volumes:
+            - "./web/dist:/var/www/loading-screen"
+            - "./fastdl:/var/www/fastdl"
+            - type: bind
+              source: "./Caddyfile"
+              target: "/etc/caddy/Caddyfile"
+        networks:
+            - default
+    server:
+        image: registry.cirroskais.xyz/garrysmod:latest
+        restart: unless-stopped
+        env_file: .env
+        stdin_open: true
+        tty: true
+        volumes:
+            - "./data:/home/gmod/server:rw"
+            - "./addons:/home/gmod/server/garrysmod/addons:r"
+        ports:
+            - "27015:27015/tcp"
+            - "27015:27015/udp"
+            - "27005:27005/udp"
+
+networks:
+    default:

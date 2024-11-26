@@ -1,0 +1,13 @@
+:80 {
+    handle_path /fastdl* {
+        root * /var/www/fastdl
+        try_files {path}
+        file_server browse
+    }
+
+    handle {
+        root * /var/www/loading-screen
+        try_files {path} /index.html
+        file_server
+    }
+}

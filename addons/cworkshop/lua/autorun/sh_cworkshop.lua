@@ -19,7 +19,6 @@ function Load()
 
     LoadClientScript("cworkshop/cl_gui.lua")
     LoadClientScript("cworkshop/cl_trigger.lua")
-    LoadServerScript("cworkshop/sv_trigger.lua")
     LoadSharedScript("cworkshop_config.lua")
 end
 

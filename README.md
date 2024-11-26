@@ -1,9 +1,18 @@
 # cirros-sandbox
 
-A monorepo containing custom addons for my sandbox server, cirro's sandbox.  
-Everything in this repository is licensed under the GNU General Public License, version 3.
+Everything that runs my sandbox server. Literally. (Except for, you know, secret stuff)  
+The contents of this repository are licensed under GNU GPL v3 unless specified otherwise.
 
-## Includes
+## Loading Screen
+
+Make sure to run `yarn run build` inside of the `web/` folder. (It's a submodule!)
+
+## FastDL
+
+You're going to want to use another one of my projects, [gmod-addon-scripts](https://github.com/cirroskais/gmod-addon-scripts).  
+Just set the environment variables, run `bun run download` and `bun run fastdl` after specifying your Workshop File IDs in `src/download.ts`.
+
+## Custom Addons
 
 -   [ ] Custom Chatbox
 -   [ ] Buildmode
